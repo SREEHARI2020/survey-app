@@ -1,17 +1,51 @@
 import { Button, TextField, Typography } from '@material-ui/core';
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './Login.css'
+import firebase from '../firebase';
+import {useHistory} from 'react-router-dom';
 
-const Login = () => {
-    const [user,setUser]=useState('');
-    const [password, setPassword] = useState('')
+const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) => {
+  
+    const history=useHistory();
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        const itemsRef = firebase.database().ref('items');
+        const item = {
+           
+            username: {user},
+            password: {password}
+          }
+          itemsRef.push(item);
+          setUser('');
+          setPassword('');
+        history.push('/home')
+    }
+
+    useEffect(() => {
+      
+        const itemsRef = firebase.database().ref('items');
+        itemsRef.on('value', (snapshot) => {
+          let items = snapshot.val();
+          let newState = [];
+          for (let item in items) {
+            newState.push({
+              id: item,
+              username: items[item].username,
+              password: items[item].password
+             
+            });
+          }
+          setItems(newState);
+          setCheckUser(newState.slice(-1)[0].username)
+        });
+      
+
+    }, [])
+
     return (
-        <div className="Forms-container">
-         
-
-
-               
-               <Typography component="h1" variant="h5">
+        <div className="Forms-container">           
+         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
         <form >
@@ -43,7 +77,7 @@ const Login = () => {
           />
          
           <Button
-            type="submit"
+           onClick={(e)=>handleSubmit(e)}
             fullWidth
             variant="contained"
             color="primary"
@@ -51,6 +85,8 @@ const Login = () => {
           >
             Sign In
           </Button> </form>
+
+        
 
         </div>
     )
