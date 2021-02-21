@@ -5,6 +5,7 @@ import {useState} from 'react';
 import Login from './components/Login';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Admin from './admin/Admin';
 
 function App() {
   const [user,setUser]=useState('');
@@ -24,6 +25,8 @@ function App() {
       </Route>
 
       <Route exact path='/home'><Home items={items} checkUser={checkUser}/></Route>
+
+      <Route exact path='/admin'><Admin/></Route>
       </Switch>
 
     </div>

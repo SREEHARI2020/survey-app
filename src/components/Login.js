@@ -1,8 +1,9 @@
+
 import { Button, TextField, Typography } from '@material-ui/core';
 import React,{useState,useEffect} from 'react'
 import './Login.css'
 import firebase from '../firebase';
-import {useHistory} from 'react-router-dom';
+import {useHistory,Link} from 'react-router-dom';
 
 const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) => {
   
@@ -86,7 +87,7 @@ const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) 
             Sign In
           </Button> </form>
 
-        
+          <Link to="/admin">Admin Login</Link>
 
         </div>
     )

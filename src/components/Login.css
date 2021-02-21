@@ -5,3 +5,8 @@
   padding: 20px;
   border: 1px solid rgb(190, 184, 184);
 }
+/* Material-ui button */
+button {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
