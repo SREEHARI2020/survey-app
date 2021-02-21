@@ -4,6 +4,7 @@ import './App.css';
 import {useState} from 'react';
 import Login from './components/Login';
 import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
   const [user,setUser]=useState('');
@@ -13,6 +14,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
+      <Navbar/>
       <Switch>
       <Route exact path='/'> <Login user={user} setUser={setUser} 
       password={password} setPassword={setPassword} 

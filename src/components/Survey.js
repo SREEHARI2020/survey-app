@@ -1,4 +1,6 @@
+import { Button } from '@material-ui/core';
 import React,{useState} from 'react'
+import { PieChart } from 'react-minimal-pie-chart';
 
 import './Survey.css'
 
@@ -68,29 +70,44 @@ const Survey = () => {
     setscore(false);
   }
       return (
-          <div className='app'>
+          <div className='survey-section'>
               
               {score ? (
-              <>	<div className='score-section sm md xl'>You scored {mark} out of {questions.length}
-         <button className='sm md xl' onClick={resetvalues}>RESET</button>
-       
+              <>	<div className='score-section'>
+               
+               <div className="score-section-total"> Congratulations You scored {mark} out of {questions.length} </div> 
+        
+       <div className="score-section-piechart-color-container"> <div className="score-section-piechart-color1"></div> <span>Correct</span> </div>
+       <div className="score-section-piechart-color-container">  <div className="score-section-piechart-color2"></div> <span>Wrong</span> </div>
+        
+       <div className="score-section-piechart-container">
+         <PieChart
+  data={[
+    { title: 'True', value: mark, color: '#E38627'  },
+    { title: 'False', value: questions.length-mark, color: '#C13C37' },
+    
+ 
+  ]}    /> 
+  </div>
+<div className='survey-button'> <Button  variant="contained" color="secondary" size="large" onClick={resetvalues}>RESET</Button></div>
+
         </div>
          
           </>
               ) : (
                   <>
-          <div className='sm md xl'>
+          <div className=' question-answer-container'>
                       <div className='question-section  '>
                           <div className='question-count  '>
-       Question {count + 1}/{questions.length}
+                            Question {count + 1}/{questions.length}
                           </div>
-              </div>
-                          <div className='question-text sm md xl'>{questions[count].questionText}</div>
-                      </div>
-                      <div className='answer-section sm md xl'>
+                             
+                          <div className='question-text '>{questions[count].questionText}</div>
+                      </div></div>
+                      <div className='answer-section '>
                       {
               questions[count].answerOptions.map((answer)=>{
-                return(<button className='sm md xl' onClick={()=>handleClick(answer.isCorrect)}>{answer.answerText}</button>);
+                return(<Button  variant="contained" color="secondary" className='' onClick={()=>handleClick(answer.isCorrect)}>{answer.answerText}</Button>);
                
               })
              
