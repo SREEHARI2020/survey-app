@@ -1,12 +1,12 @@
 .admin-page-container {
   background-color: #242424;
-  width: 50vw;
-  height: 70vh;
+  width: 500px;
+  height: 300px;
   margin: 0 auto;
   margin-top: 20px;
   border-radius: 10px;
   color: #fff;
-  font-size: 34px;
+  font-size: 24px;
   text-align: center;
   opacity: 0.8;
 }
@@ -18,12 +18,13 @@
   padding-top: 60px;
   display: flex;
   justify-content: space-between;
-  width: 800px;
+  width: 500px;
+  padding: 20px;
 }
 
 .admin-page-container-body-survey {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 .admin-page-container-body-survey :hover {
   background-color: black;
@@ -31,8 +32,8 @@
 }
 
 .admin-page-container-body-view-users {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 .admin-page-container-body-view-users :hover {
   background-color: black;
