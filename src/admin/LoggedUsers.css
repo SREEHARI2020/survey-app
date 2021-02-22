@@ -1,0 +1,21 @@
+.Table-container {
+  width: 400px;
+  padding: 20px;
+  border-radius: 20px;
+  transform: translate(200%, 2%);
+
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+.Table-container th {
+  border-bottom: solid white;
+}
+.Table-container tr:hover {
+  background-color: rgb(105, 100, 100);
+}
+.Table-container thead tr:hover {
+  background-color: black;
+}

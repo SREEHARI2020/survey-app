@@ -5,9 +5,16 @@
   margin: 0 auto;
   margin-top: 20px;
   border-radius: 10px;
+  opacity: 0.95;
 }
 .score-section {
   color: #fff;
+  opacity: 2;
+}
+.score-section-survey {
+  font-size: 24px;
+  padding-top: 10px;
+  text-align: center;
 }
 .score-section-total {
   font-size: 24px;
@@ -19,7 +26,7 @@
   display: flex;
   justify-content: space-between;
 
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 20px;
 }
 .score-section-piechart-color1 {
@@ -37,8 +44,8 @@
   width: 20vw;
 }
 .survey-button {
-  padding-top: 20px;
-  transform: translateX(47%);
+  padding-top: 5px;
+  transform: translateX(40%);
 }
 .question-answer-container {
   color: #fff;
@@ -57,4 +64,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+.answer-section-button {
+  width: 300px;
 }

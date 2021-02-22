@@ -1,10 +1,11 @@
 import { Button } from '@material-ui/core';
 import React,{useState} from 'react'
 import { PieChart } from 'react-minimal-pie-chart';
-
+import{useHistory} from 'react-router-dom'
 import './Survey.css'
 
 const Survey = () => {
+  const history=useHistory();
     const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -68,14 +69,15 @@ const Survey = () => {
     setcount(0)
     setmark(0);
     setscore(false);
+    history.push('/')
   }
       return (
           <div className='survey-section'>
               
               {score ? (
               <>	<div className='score-section'>
-               
-               <div className="score-section-total"> Congratulations You scored {mark} out of {questions.length} </div> 
+               <div className='score-section-survey'>Survey Completed</div>
+               <div className="score-section-total"> Congratulations! You scored {mark} out of {questions.length} </div> 
         
        <div className="score-section-piechart-color-container"> <div className="score-section-piechart-color1"></div> <span>Correct</span> </div>
        <div className="score-section-piechart-color-container">  <div className="score-section-piechart-color2"></div> <span>Wrong</span> </div>
@@ -89,7 +91,8 @@ const Survey = () => {
  
   ]}    /> 
   </div>
-<div className='survey-button'> <Button  variant="contained" color="secondary" size="large" onClick={resetvalues}>RESET</Button></div>
+<div className='survey-button'> <Button  variant="contained" color="primary" size="large" 
+        onClick={resetvalues}>Go back to Login page</Button></div>
 
         </div>
          
@@ -107,8 +110,13 @@ const Survey = () => {
                       <div className='answer-section '>
                       {
               questions[count].answerOptions.map((answer)=>{
-                return(<Button  variant="contained" color="secondary" className='' onClick={()=>handleClick(answer.isCorrect)}>{answer.answerText}</Button>);
-               
+                return(
+                  <div className='answer-section-button '>
+                <Button  variant="contained" color="secondary" fullWidth 
+                onClick={()=>handleClick(answer.isCorrect)}>{answer.answerText}</Button>
+                 </div>
+                );
+              
               })
              
               

@@ -4,6 +4,7 @@ import React,{useState,useEffect} from 'react'
 import './Login.css'
 import firebase from '../firebase';
 import {useHistory,Link} from 'react-router-dom';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) => {
   
@@ -87,7 +88,11 @@ const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) 
             Sign In
           </Button> </form>
 
-          <Link to="/admin">Admin Login</Link>
+          <Link to="/admin">  
+          <div className="Forms-container-admin-link">  
+         <div>Admin Login</div> 
+         < ArrowForwardIcon/>
+        </div>  </Link>
 
         </div>
     )

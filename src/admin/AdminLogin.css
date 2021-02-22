@@ -1,3 +1,16 @@
 .Forms-container-error {
+  font-size: 18px;
+  font-weight: bold;
   color: red;
+}
+.Forms-container-user-link {
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #fff;
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 20px;
 }
