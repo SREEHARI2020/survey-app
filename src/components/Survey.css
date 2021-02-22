@@ -1,7 +1,7 @@
 .survey-section {
   background-color: #242424;
   width: 50vw;
-  height: 70vh;
+  height: 91vh;
   margin: 0 auto;
   margin-top: 20px;
   border-radius: 10px;
@@ -45,7 +45,7 @@
 }
 .survey-button {
   padding-top: 5px;
-  transform: translateX(40%);
+  transform: translateX(27%);
 }
 .question-answer-container {
   color: #fff;
@@ -57,7 +57,7 @@
   text-align: center;
 }
 .answer-section {
-  margin-top: 60px;
+  margin-top: 30px;
   height: 300px;
 
   display: flex;

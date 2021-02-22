@@ -21,3 +21,6 @@ button {
   justify-content: flex-start;
   padding-right: 20px;
 }
+.Forms-user-error {
+  color: red;
+}

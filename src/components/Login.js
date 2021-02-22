@@ -10,8 +10,30 @@ const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) 
   
     const history=useHistory();
 
-    const handleSubmit=(e)=>{
+    const [error,setError] =useState({})
+
+
+    const validate=()=>{
+        let valid={}
+        valid.username=user.length>6 && user.length<30? "":" email should be between 6 to  30 characters"
+        valid.password=password.length>5 && password.length<10? "":" password should be between 5 to 10 characters"
+        
+        return valid;
+    }
+    
+     
+
+       
+
+
+
+
+ const handleSubmit=(e)=>{
         e.preventDefault();
+        let obj=validate();
+        setError(obj);
+
+        if(error.username==="" && error.password===""){
         const itemsRef = firebase.database().ref('items');
         const item = {
            
@@ -22,6 +44,8 @@ const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) 
           setUser('');
           setPassword('');
         history.push('/home')
+
+        }
     }
 
     useEffect(() => {
@@ -51,6 +75,7 @@ const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) 
           Sign in
         </Typography>
         <form >
+        {error? <div className="Forms-user-error">{error.username}</div>:""}   
           <TextField
             variant="outlined"
             margin="normal"
@@ -63,7 +88,9 @@ const Login = ( {user,setUser,password,setPassword,item,setItems,setCheckUser}) 
              value={user}
             autoComplete="email"
             autoFocus
+           
           />
+             {error? <div className="Forms-user-error">{error.password}</div>:""}  
           <TextField
             variant="outlined"
             margin="normal"
